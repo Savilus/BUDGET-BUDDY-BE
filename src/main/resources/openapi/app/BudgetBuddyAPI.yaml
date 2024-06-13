@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Budget Buddy API
+  description: API for expense management system
+paths:
+  /testPatch:
+    post:
+      tags:
+        - test endopint
+      summary: Endpoint just for test
+      description: This description shows how it works
+      operationId: test
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../components/components.yaml#/components/schemas/TestObject'
+      responses:
+        '401':
+          description: Test fail
+        '200':
+          description: Test success

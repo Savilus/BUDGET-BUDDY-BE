@@ -1,0 +1,31 @@
+server:
+  port: 8080
+spring:
+  main:
+    banner-mode: "off"
+  liquibase:
+    enabled: true
+    change-log: "classpath:/db/changelog-master.yaml"
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    properties:
+      #    database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+        transaction:
+          jta:
+            platform: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: validate
+
+logging:
+  config: "src/main/resources/log4j/log4j.xml"
+  level:
+    root: "INFO"
+    eu:
+      ConsoleAppender: "INFO"
