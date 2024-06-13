@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout disableAnsi="false"
+                    pattern="[%d{HH:mm:ss.SSS}]  %highlight{%-5p} [%10t] --- %highlight{%-40.30logger}{ERROR=red, WARN=yellow, INFO=cyan}:  %highlight{%message}{ERROR=red, INFO=#f8f8f8}%n"/>
+        </Console>
+        <File name="MyFile" fileName="all.log" immediateFlush="false" append="false">
+            <PatternLayout disableAnsi="false"
+                           pattern="%d{[yyy-MM-dd HH:mm:ss.SSS]}  %-5level [%t]: %logger  -- %msg -> (method) %method %n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MyFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
